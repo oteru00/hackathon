@@ -87,4 +87,11 @@ li {
   margin: 0 auto;
 }
 
+.avatar {
+  width: 500px;
+}
+
+.avatar-group {
+  display: flex;
+}
 /*# sourceMappingURL=style.css.map */

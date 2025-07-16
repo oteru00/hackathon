@@ -2,3 +2,6 @@
 
 @use '../base/mixins' as mix;
 
+.avatar-group {
+    display: flex;
+}
