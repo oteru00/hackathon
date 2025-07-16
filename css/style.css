@@ -87,4 +87,17 @@ li {
   margin: 0 auto;
 }
 
+.avatar-area {
+  display: flex;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about-text li {
+  list-style: outside;
+  list-style-type: disc;
+  padding-left: 0;
+}
 /*# sourceMappingURL=style.css.map */

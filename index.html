@@ -11,21 +11,45 @@
     <script src="js/script.js"></script>
     <!-- Font -->
     <script>
-        (function(d) {
-          var config = {
-            kitId: 'oqw2zfc',
-            scriptTimeout: 3000,
-            async: true
-          },
-          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        (function (d) {
+            var config = {
+                kitId: 'oqw2zfc',
+                scriptTimeout: 3000,
+                async: true
+            },
+                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
         })(document);
-      </script>
+    </script>
 </head>
 
 <body>
     <h1>ハッカソン</h1>
 
-    
+    <section id="about" class="wrapper">
+        <h2 class="sec-tit">Meta Leaf</h2>
+        <div class="avatar-area">
+            <img src="img/metalife-avatar.png" alt="">
+            <img src="img/metalife-avatar.png" alt="">
+            <img src="img/metalife-avatar.png" alt="">
+            <img src="img/metalife-avatar.png" alt="">
+            <img src="img/metalife-avatar.png" alt="">
+        </div>
+        <div class="about-text">
+            <h3>メタリーフって、どんなとこ？</h3>
+            <p>メタリーフは、肩の力を抜いて『ただいま』って帰って来られるような、暖かく緩やかなコミュニティーです。</p>
+            <p>『仲間が欲しいけれど急に輪に入るのはちょっと。。。』そんなあなたにピッタリ。</p>
+            <p>みんな自分のペースでのんびり楽しんでいます。</p>
+            <p>まずはちょっと覗いてみませんか？</p>
+            <p>どんな場所か知るだけでもOK。無理になんとかしなきゃ！って気負わなくても大丈夫。</p>
+            <p>気が向いたら、そっと手を伸ばしてみてくださいね。</p>
+            <h3>メタリーフで楽しめること</h3>
+            <ul>
+                <li>ふんわり届くセミナーの案内やイベント情報</li>
+                <li>オンラインでゆるっと繋がる飲み会やおしゃべり会（参加は気楽に）</li>
+                <li>ちょっとした日常トークや笑顔の交換</li>
+            </ul>
+        </div>
+    </section>
 </body>
 
 </html>

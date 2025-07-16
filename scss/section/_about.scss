@@ -2,3 +2,17 @@
 
 @use '../base/mixins' as mix;
 
+.avatar-area{
+    display: flex;
+}
+
+.about-text{
+    max-width: 800px;
+    margin: 0 auto;
+
+    li{
+        list-style: outside;
+        list-style-type: disc;
+        padding-left: 0;
+    }
+}
