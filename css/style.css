@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -99,5 +100,28 @@ li {
   list-style: outside;
   list-style-type: disc;
   padding-left: 0;
+}
+
+footer .avatar-area {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  /* アバター同士の間隔 */
+  flex-wrap: wrap;
+  /* 画面が狭いとき折り返す */
+  padding: 20px 0;
+}
+footer .avatar-area .avatar-rotate {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+footer .avatar-area .avatar-rotate img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
