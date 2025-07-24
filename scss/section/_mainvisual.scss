@@ -2,3 +2,67 @@
 
 @use '../base/mixins' as mix;
 
+// ページ読み込み中などでスクロールさせたくないときに付けるクラス
+body.no-scroll {
+  height: 100vh;           // 画面全体の高さに固定
+  overflow: hidden;        // スクロールバーを非表示（スクロールできなくする）
+}
+
+// メインビジュアル（背景に動画などを使った大きなセクション）
+.main-visual {
+  position: relative;
+  width: 100%;
+  height: 100vh;           // 画面いっぱいの高さ
+  overflow: hidden;        // 内側のはみ出しを隠す
+  background: #DFF3E3;     // 背景色（やさしい緑系）
+
+  // メインビジュアル内の動画や画像
+  .main-visual-video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;     // 縦横比を保ちながら全体をカバー
+    display: block;
+    background: transparent;  // 背景透明
+
+    // クリップパスで丸みのある長方形に切り取る
+    clip-path: inset(0% round 30px); 
+
+    // クリップパスとtransformにアニメーション効果を追加
+    transition: clip-path 0.3s ease, transform 0.3s ease;
+    transform-origin: center; // 変形の中心を中央に
+  }
+}
+
+// アバターをまとめて下に配置するコンテナ（スクロールに応じてアニメ表示）
+.avatar-container {
+  position: fixed;              // スクロールしても固定表示
+  bottom: 0;                    // 画面の一番下に配置
+  left: 50%;                    // 横中央に配置（次行とセット）
+  transform: translateX(-50%);  // 左方向に半分ずらして中央揃え
+  display: flex;
+  flex-direction: column;       // アバターを縦に並べる
+  align-items: center;          // 中央揃え
+  gap: 30px;                    // アバター同士の間隔
+  pointer-events: none;         // クリックなどを無効に（操作不能）
+  z-index: 10;                  // 他の要素より前面に表示
+}
+
+// 個別のアバター画像（初期状態では非表示）
+.avatar {
+  width: 100px;                 // 幅指定
+  opacity: 0;                   // 初期は非表示（スクロールで出現）
+  transform: translateY(0);     // 初期位置はそのまま
+}
+
+// 「次のセクションへ」などの案内ボタン（アニメでふわっと表示）
+.next-section {
+  opacity: 0;                   // 初期は透明（非表示）
+  transform: translateY(100px); // 下に少しずらす（出現アニメの準備）
+  transition: opacity 0.6s ease, transform 0.6s ease; // 出現アニメ
+}
+
+// 表示フラグ（JSで.visibleを追加すると表示）
+.next-section.visible {
+  opacity: 1;                   // 表示
+  transform: translateY(0);     // 元の位置に戻す（上にスライド）
+}

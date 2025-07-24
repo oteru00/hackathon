@@ -64,7 +64,7 @@ body {
   font-family: "logo-cut-std", sans-serif;
   font-weight: 300;
   font-style: normal;
-  background-color: #ffffff;
+  background: #DFF3E3;
 }
 
 * img {
@@ -86,6 +86,260 @@ li {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+}
+
+#loading-item {
+  display: none;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9999;
+  transform-origin: center center;
+  perspective: 1200px;
+  background: linear-gradient(270deg, #f0f8f0, #d0e8d0, #f0f8f0);
+  background-size: 600% 600%;
+  -webkit-animation: bgGradientShift 10s ease infinite;
+          animation: bgGradientShift 10s ease infinite;
+}
+
+@-webkit-keyframes bgGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bgGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.loading__item {
+  position: absolute;
+  will-change: transform, opacity;
+}
+
+.loading__item img {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.loading__item--large img {
+  width: 80px;
+  height: 80px;
+}
+
+.meta-logo {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  z-index: 20;
+  width: 200px;
+  pointer-events: none;
+}
+
+.meta-logo.visible {
+  opacity: 1;
+}
+
+/* ==== ロゴを吸い込むアニメーション ==== */
+@-webkit-keyframes logoZoomOut {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+@keyframes logoZoomOut {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes loadingDisappear {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes loadingDisappear {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+/* アニメ用クラス */
+.meta-logo.zoomout {
+  -webkit-animation: logoZoomOut 1s ease-in-out forwards;
+          animation: logoZoomOut 1s ease-in-out forwards;
+}
+
+.loading.disappear {
+  -webkit-animation: loadingDisappear 1s ease-in-out forwards;
+          animation: loadingDisappear 1s ease-in-out forwards;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+header .header-inner .logo img {
+  height: 50px;
+  display: block;
+}
+header .header-inner .hamburger {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  width: 100px;
+  position: relative;
+}
+header .header-inner .hamburger::after {
+  content: "menu";
+  display: block;
+  position: absolute;
+  font-weight: bold;
+  top: 70px;
+  left: 30px;
+}
+header .header-inner .hamburger img {
+  display: block;
+  width: 100%;
+}
+header nav {
+  display: none;
+  background: #8DE4B7;
+  width: 15%;
+  right: 30px;
+  position: absolute;
+  border-radius: 50px;
+  padding: 30px 0;
+}
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+}
+header nav ul li {
+  margin-bottom: 8px;
+  border-bottom: 3px dotted #D3FFEE;
+  padding-top: 30px;
+}
+header nav ul li:first-of-type {
+  padding-top: 0;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+}
+header nav ul li a:hover {
+  color: #007a33;
+}
+
+body.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-visual {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #DFF3E3;
+}
+.main-visual .main-visual-video {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  background: transparent;
+  -webkit-clip-path: inset(0% round 30px);
+          clip-path: inset(0% round 30px);
+  transition: transform 0.3s ease, -webkit-clip-path 0.3s ease;
+  transition: clip-path 0.3s ease, transform 0.3s ease;
+  transition: clip-path 0.3s ease, transform 0.3s ease, -webkit-clip-path 0.3s ease;
+  transform-origin: center;
+}
+
+.avatar-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.avatar {
+  width: 100px;
+  opacity: 0;
+  transform: translateY(0);
+}
+
+.next-section {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.next-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .avatar-area {
