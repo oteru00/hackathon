@@ -6,9 +6,7 @@ footer .avatar-area {
     display: flex;
     justify-content: center;
     gap: 20px;
-    /* アバター同士の間隔 */
     flex-wrap: wrap;
-    /* 画面が狭いとき折り返す */
     padding: 20px 0;
 
     .avatar-rotate {

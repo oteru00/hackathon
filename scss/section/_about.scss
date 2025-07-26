@@ -2,6 +2,11 @@
 
 @use '../base/mixins' as mix;
 
+.sec-tit{
+    width: fit-content;
+    margin: 0 auto;
+}
+
 .avatar-area{
     display: flex;
 }
