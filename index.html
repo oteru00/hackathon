@@ -7,13 +7,6 @@
     <title>hackathon</title>
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- JavaScript -->
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/script.js"></script> -->
-
     <!-- Font -->
     <script>
         (function (d) {
@@ -30,103 +23,123 @@
 <body>
     <div class="loading" id="loading"></div>
 
-    <div id="view">
-        <header>
-            <div class="header-inner">
-                <h1 class="logo">
-                    <img id="headerLogo" src="img/meta-logo2.png" alt="メタリーフ" />
-                </h1>
-                <div class="hamburger">
-                    <img src="img/meta2.png" alt="menu icon" />
-                </div>
+    <header>
+        <div class="header-inner">
+            <h1 class="logo">
+                <img id="headerLogo" src="img/meta-logo2.png" alt="メタリーフ" />
+            </h1>
+            <div class="hamburger">
+                <img src="img/meta2.png" alt="menu icon" />
             </div>
-            <nav>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">メタリーフについて</a></li>
+                <li><a href="#">フロア説明</a></li>
+                <li><a href="#">フロアツアー</a></li>
+                <li><a href="#">みんなの声</a></li>
+                <li><a href="#">お問い合わせ・登録</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="main-visual">
+            <video autoplay muted loop playsinline class="main-visual-video">
+                <source src="videos/1.mp4" type="video/mp4" />
+                お使いのブラウザは動画タグに対応していません。
+            </video>
+            <div class="center-logo" id="centerLogo">
+                <p class="logo-style">Meta <span>Leaf</span></p>
+            </div>
+        </section>
+
+
+        <div class="avatar-scroll-rotate">
+            <div class="avatar">
+                <img src="img/metalife-avatar (12).png" alt="">
+                <img src="img/metalife-avatar (13).png" alt="">
+                <img src="img/metalife-avatar (14).png" alt="">
+                <img src="img/metalife-avatar (15).png" alt="">
+            </div>
+            <div class="avatar">
+                <img src="img/metalife-avatar.png" alt="">
+                <img src="img/metalife-avatar (1).png" alt="">
+                <img src="img/metalife-avatar (2).png" alt="">
+                <img src="img/metalife-avatar (3).png" alt="">
+            </div>
+            <div class="avatar">
+                <img src="img/metalife-avatar (8).png" alt="">
+                <img src="img/metalife-avatar (9).png" alt="">
+                <img src="img/metalife-avatar (10).png" alt="">
+                <img src="img/metalife-avatar (11).png" alt="">
+            </div>
+            <div class="avatar">
+                <img src="img/metalife-avatar (4).png" alt="">
+                <img src="img/metalife-avatar (5).png" alt="">
+                <img src="img/metalife-avatar (6).png" alt="">
+                <img src="img/metalife-avatar (7).png" alt="">
+            </div>
+        </div>
+
+        <section id="about" class="wrapper next-section">
+            <h2 class="sec-tit logo-style">Meta <span>Leaf</span></h2>
+            <div class="avatar-area">
+                <img src="img/metalife-avatar (12).png" alt="">
+                <img src="img/metalife-avatar (4).png" alt="">
+                <img src="img/metalife-avatar (8).png" alt="">
+                <img src="img/metalife-avatar.png" alt="">
+            </div>
+            <div class="about-text">
+                <h3>メタリーフって、どんなとこ？</h3>
+                <p>メタリーフは、肩の力を抜いて『ただいま』って帰って来られるような、暖かく緩やかなコミュニティーです。</p>
+                <p>『仲間が欲しいけれど急に輪に入るのはちょっと。。。』そんなあなたにピッタリ。</p>
+                <p>みんな自分のペースでのんびり楽しんでいます。</p>
+                <p>まずはちょっと覗いてみませんか？</p>
+                <p>どんな場所か知るだけでもOK。無理になんとかしなきゃ！って気負わなくても大丈夫。</p>
+                <p>気が向いたら、そっと手を伸ばしてみてくださいね。</p>
+                <h3>メタリーフで楽しめること</h3>
                 <ul>
-                    <li><a href="#">メタリーフについて</a></li>
-                    <li><a href="#">フロア説明</a></li>
-                    <li><a href="#">フロアツアー</a></li>
-                    <li><a href="#">みんなの声</a></li>
-                    <li><a href="#">お問い合わせ・登録</a></li>
+                    <li>ふんわり届くセミナーの案内やイベント情報</li>
+                    <li>オンラインでゆるっと繋がる飲み会やおしゃべり会（参加は気楽に）</li>
+                    <li>ちょっとした日常トークや笑顔の交換</li>
                 </ul>
-            </nav>
-        </header>
-
-        <main>
-            <section class="main-visual">
-                <video autoplay muted loop playsinline class="main-visual-video">
-                    <source src="videos/1.mp4" type="video/mp4" />
-                    お使いのブラウザは動画タグに対応していません。
-                </video>
-            </section>
-
-            <!-- ここにロゴ画像を追加 -->
-            <img src="img/meta.png" alt="meta-logo" class="meta-logo" />
-
-            <!-- main内の適切な場所に追加 -->
-            <div class="avatar-container">
-                <img src="img/metalife-avatar (12).png" alt="アバター" class="avatar" />
-                <img src="img/metalife-avatar (4).png" alt="アバター" class="avatar" />
-                <img src="img/metalife-avatar (8).png" alt="アバター" class="avatar" />
-                <img src="img/metalife-avatar.png" alt="アバター" class="avatar" />
             </div>
+        </section>
 
-            <section id="about" class="wrapper next-section">
-                <h2 class="sec-tit">Meta Leaf</h2>
-                <div class="avatar-area">
-                    <img src="img/metalife-avatar (12).png" alt="">
-                    <img src="img/metalife-avatar (4).png" alt="">
-                    <img src="img/metalife-avatar (8).png" alt="">
-                    <img src="img/metalife-avatar.png" alt="">
-                </div>
-                <div class="about-text">
-                    <h3>メタリーフって、どんなとこ？</h3>
-                    <p>メタリーフは、肩の力を抜いて『ただいま』って帰って来られるような、暖かく緩やかなコミュニティーです。</p>
-                    <p>『仲間が欲しいけれど急に輪に入るのはちょっと。。。』そんなあなたにピッタリ。</p>
-                    <p>みんな自分のペースでのんびり楽しんでいます。</p>
-                    <p>まずはちょっと覗いてみませんか？</p>
-                    <p>どんな場所か知るだけでもOK。無理になんとかしなきゃ！って気負わなくても大丈夫。</p>
-                    <p>気が向いたら、そっと手を伸ばしてみてくださいね。</p>
-                    <h3>メタリーフで楽しめること</h3>
-                    <ul>
-                        <li>ふんわり届くセミナーの案内やイベント情報</li>
-                        <li>オンラインでゆるっと繋がる飲み会やおしゃべり会（参加は気楽に）</li>
-                        <li>ちょっとした日常トークや笑顔の交換</li>
-                    </ul>
-                </div>
-            </section>
-            <section class="voices">
-                <h2>みんなの声</h2>
-                <div class="slider-container">
-                    <div class="voice-slider">
-                        <div class="voice-card">
-                            <p>コーディングで困ったことができたときに相談にくるとアドバイスがもらえて助かっています&#x1f97a;&#x1fa75;</p>
-                            <img src="img/metalife-avatar (21).png" alt="声1" />
-                        </div>
-                        <div class="voice-card">
-                            <p>家で1人で作業しているとサボりがちになっちゃうけど、メタリーフに入って作業をすると、オフィスにいる感じで作業ができるので、モチベーション上がります&#x1f606;</p>
-                            <img src="img/metalife-avatar (23).png" alt="声2" />
-                        </div>
-                        <div class="voice-card">
-                            <p>『 &#x1f972;』マークが目印！メタリーフの使い方がわからなくて、困っていると助けにきてくれて、移動手段や活用方法などを教えてくれました&#x1f60a;</p>
-                            <img src="img/metalife-avatar (20).png" alt="声4" />
-                        </div>
-                        <div class="voice-card">
-                            <p>オンライン飲み会 &#x1f37a;チームでゲームは盛り上がる&#x1f973;ゲームに負けても楽しければ良し(笑)たくさん笑えていい思い出になりました&#x1faf6;</p>
-                            <img src="img/metalife-avatar (22).png" alt="声3" />
-                        </div>
-                        <div class="voice-card">
-                            <p>自分から話しかけるのは苦手だったけど、一歩踏み出して話しかけたことで、自然と話せる仲間が増えて、嬉しいです&#x2728;</p>
-                            <img src="img/metalife-avatar (24).png" alt="声5" />
-                        </div>
+        <section class="voices">
+            <h2>みんなの声</h2>
+            <div class="slider-container">
+                <div class="voice-slider">
+                    <div class="voice-card">
+                        <p>コーディングで困ったことができたときに相談にくるとアドバイスがもらえて助かっています&#x1f97a;&#x1fa75;</p>
+                        <img src="img/metalife-avatar (21).png" alt="声1" />
+                    </div>
+                    <div class="voice-card">
+                        <p>家で1人で作業しているとサボりがちになっちゃうけど、メタリーフに入って作業をすると、オフィスにいる感じで作業ができるので、モチベーション上がります&#x1f606;</p>
+                        <img src="img/metalife-avatar (23).png" alt="声2" />
+                    </div>
+                    <div class="voice-card">
+                        <p>『 &#x1f972;』マークが目印！メタリーフの使い方がわからなくて、困っていると助けにきてくれて、移動手段や活用方法などを教えてくれました&#x1f60a;</p>
+                        <img src="img/metalife-avatar (20).png" alt="声4" />
+                    </div>
+                    <div class="voice-card">
+                        <p>オンライン飲み会 &#x1f37a;チームでゲームは盛り上がる&#x1f973;ゲームに負けても楽しければ良し(笑)たくさん笑えていい思い出になりました&#x1faf6;</p>
+                        <img src="img/metalife-avatar (22).png" alt="声3" />
+                    </div>
+                    <div class="voice-card">
+                        <p>自分から話しかけるのは苦手だったけど、一歩踏み出して話しかけたことで、自然と話せる仲間が増えて、嬉しいです&#x2728;</p>
+                        <img src="img/metalife-avatar (24).png" alt="声5" />
                     </div>
                 </div>
-                <div class="nav-buttons">
-                    <button id="prev">←</button>
-                    <button id="next">→</button>
-                </div>
-            </section>
-        </main>
-    </div>
+            </div>
+            <div class="nav-buttons">
+                <button id="prev">←</button>
+                <button id="next">→</button>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <div class="wrapper">
             <div class="avatar-area">
@@ -154,12 +167,6 @@
                     <img src="img/metalife-avatar (6).png" alt="">
                     <img src="img/metalife-avatar (7).png" alt="">
                 </div>
-                <!-- <div class="avatar-rotate">
-                    <img src="img/metalife-avatar.png" alt="">
-                    <img src="img/metalife-avatar (1).png" alt="">
-                    <img src="img/metalife-avatar (2).png" alt="">
-                    <img src="img/metalife-avatar (3).png" alt="">
-                </div> -->
             </div>
         </div>
     </footer>

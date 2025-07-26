@@ -1,18 +1,47 @@
 $(function () {
-  // --- footerアニメーション ---
-  // .avatar-rotate要素の中の画像を順番に切り替える処理
-  $('.avatar-rotate').each(function (i, el) {
-    const $imgs = $(el).find('img'); // 画像要素を全部取得
-    let currentIndex = 0;             // 今表示している画像のインデックス
 
-    // 最初は全画像非表示にして、currentIndexの画像だけ表示する
+  //スクロールアニメーション
+  const numLoops = 2;
+
+  $(window).on('scroll', function () {
+    const windowHeight = $(window).height();
+    const scrollTop = $(window).scrollTop();
+
+    $('.avatar').each(function () {
+      const $avatar = $(this);
+      const offsetTop = $avatar.offset().top;
+      const avatarHeight = $avatar.outerHeight();
+
+      // ビューポート内での表示進捗（0〜1）
+      const progress = (scrollTop + windowHeight - offsetTop) / (windowHeight + avatarHeight);
+
+      // 範囲外ならスキップ
+      if (progress < 0 || progress > 1) return;
+
+      const $imgs = $avatar.find('img');
+      const numImages = $imgs.length;
+      const totalSteps = numImages * numLoops;
+      const currentStep = Math.floor(progress * totalSteps) % numImages;
+
+      $imgs.removeClass('active');
+      $imgs.eq(currentStep).addClass('active');
+    });
+  });
+
+  // 初期表示
+  $(window).trigger('scroll');
+
+  // --- footerアニメーション ---
+  $('footer .avatar-rotate').each(function (i, el) {
+    const $imgs = $(el).find('img');
+    let currentIndex = 0;
+
     $imgs.hide().eq(currentIndex).show();
 
-    // 500msごとに画像を切り替えるタイマー設定
     setInterval(function () {
-      $imgs.eq(currentIndex).hide();  // 現在の画像を非表示
-      currentIndex = (currentIndex + 1) % $imgs.length;  // インデックスを次へ（最後なら0に戻る）
-      $imgs.eq(currentIndex).show();  // 次の画像を表示
+      $imgs.eq(currentIndex).hide();
+      currentIndex = (currentIndex + 1) % $imgs.length;
+      $imgs.eq(currentIndex).show();
     }, 500);
   });
 
