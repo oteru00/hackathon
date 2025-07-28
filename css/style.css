@@ -349,21 +349,30 @@ body.no-scroll {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 0 auto;
+  margin: 0 auto 50px;
+  opacity: 0;
 }
 
 .avatar-area {
   display: flex;
+  margin: 100px 0;
 }
 
 .about-text {
   max-width: 800px;
   margin: 0 auto;
+  text-align: center;
+}
+.about-text .about-text-box {
+  margin-bottom: 50px;
+  font-size: 3rem;
+}
+.about-text h3 {
+  margin-bottom: 15px;
 }
 .about-text li {
-  list-style: outside;
+  list-style: inside;
   list-style-type: disc;
-  padding-left: 0;
 }
 
 .voices {
@@ -519,6 +528,50 @@ body.no-scroll {
   }
 }
 
+#sign-up .sec-title {
+  width: 60vw;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 13rem;
+}
+#sign-up .cont-box {
+  position: relative;
+  background-color: #fff;
+  padding: 40px 200px;
+  border-radius: 20px;
+  border-top: dotted 1px #333;
+}
+#sign-up .cont-box:first-of-type {
+  border-top: none;
+}
+#sign-up .cont-box::after {
+  display: block;
+  content: "+";
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 3rem;
+  position: absolute;
+  top: 40px;
+  right: 200px;
+  color: #333;
+  z-index: 100;
+  transition: all 0.5s;
+}
+#sign-up .cont-box .accordion-inner {
+  display: none;
+}
+#sign-up .open::after {
+  transform: rotate(45deg);
+}
+#sign-up .number {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  font-size: 10rem;
+}
+
 footer .avatar-area {
   display: flex;
   justify-content: center;
@@ -548,7 +601,7 @@ footer .avatar-area .avatar-rotate img {
 }
 .avatar-scroll-rotate .avatar {
   position: relative;
-  width: 30vw;
+  width: 25vw;
 }
 .avatar-scroll-rotate .avatar img {
   display: none;

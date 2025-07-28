@@ -163,25 +163,27 @@ $(function () {
 
 $(function () {
   const $centerLogo = $('#centerLogo');
-  const $h2Logo = $('h2.sec-tit.logo-style');
+  const $secTit = $('h2.logo-style');
 
   $(window).on('scroll', function () {
     const scrollTop = $(this).scrollTop();
     const windowHeight = $(this).height();
-
-    const h2Top = $h2Logo.offset().top;
-    const h2Left = $h2Logo.offset().left;
-    const h2CenterY = h2Top + $h2Logo.outerHeight() / 2;
     const screenCenterY = scrollTop + windowHeight / 2;
 
-    const h2Width = $h2Logo.outerWidth();
-    const h2Height = $h2Logo.outerHeight();
-    const h2FontSize = $h2Logo.css('font-size');
-    const h2LineHeight = $h2Logo.css('line-height');
-    const h2FontWeight = $h2Logo.css('font-weight');
+    const h2Top = $secTit.offset().top;
+    const h2Left = $secTit.offset().left;
+    const h2Width = $secTit.outerWidth();
+    const h2Height = $secTit.outerHeight();
+    const h2FontSize = $secTit.css('font-size');
+    const h2LineHeight = $secTit.css('line-height');
+    const h2FontWeight = $secTit.css('font-weight');
 
-    // .sec-tit が画面中央より上に行ったら追従（吸着モード）
-    if (h2CenterY < screenCenterY) {
+    // ✅ sec-tit が画面中央より上 → 表示＆吸着
+    if (h2Top < screenCenterY) {
+      // opacity
+      $secTit.css('opacity', 1);
+
+      // ロゴ吸着
       $centerLogo.css({
         position: 'absolute',
         top: h2Top + 'px',
@@ -196,7 +198,10 @@ $(function () {
         zIndex: 1
       });
     } else {
-      // 画面中央より下 → 中央で大きく表示
+      // opacity
+      $secTit.css('opacity', 0);
+
+      // ロゴ戻す
       $centerLogo.css({
         position: 'fixed',
         top: '50%',
@@ -211,5 +216,16 @@ $(function () {
         zIndex: -10
       });
     }
+  });
+
+  $(window).trigger('scroll'); // 初期化
+});
+
+$(function () {
+  $('.accordion').click(function () {
+    $(this).children('.accordion-inner').slideToggle();
+    $(this).toggleClass("open");
+    $('.accordion').not($(this)).children('.accordion-inner').slideUp();
+    $('.accordion').not($(this)).removeClass("open");
   });
 });
