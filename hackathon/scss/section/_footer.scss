@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@use '../base/mixins' as mix;
+
+footer .avatar-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+
+    .avatar-rotate {
+        width: 120px;
+        height: 120px;
+        position: relative;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+    }
+}

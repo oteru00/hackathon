@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+@use '../base/mixins' as mix;
+
+html {
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    -webkit-text-size-adjust: 100%;
+    height: auto;
+    min-height: 100vh;
+    font-size: 1.6rem;
+    color: #333333;
+    font-family: "logo-cut-std","DotGothic16", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background: #DFF3E3;
+}
+
+*img {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+// 共通項目
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logo-style {
+    font-size: 15rem;
+    font-weight: bold;
+
+    span {
+        color: #22978C;
+    }
+}

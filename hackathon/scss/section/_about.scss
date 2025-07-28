@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+@use '../base/mixins' as mix;
+
+.sec-tit{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.avatar-area{
+    display: flex;
+}
+
+.about-text{
+    max-width: 800px;
+    margin: 0 auto;
+
+    li{
+        list-style: outside;
+        list-style-type: disc;
+        padding-left: 0;
+    }
+}

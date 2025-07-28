@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@mixin pc {
+    @media (min-width: (1280px)) {
+        @content;
+    }
+}
+@mixin tab {
+    @media (min-width: (768px)) {
+        @content;
+    }
+}
+@mixin sp {
+    @media (min-width: (390px)) {
+        @content;
+    }
+}

@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+@use '../base/mixins' as mix;
+
+// ローディング終了後に表示する要素（最初は非表示にしておく）
+#loading-item {
+  display: none;
+  // padding: 20px;                 // 任意の余白（コメントアウト中）
+  // font-family: 'Yu Gothic', sans-serif; // フォント指定
+  // text-align: center;           // テキスト中央寄せ
+}
+
+// ローディング全体の背景エリア
+.loading {
+  position: fixed;               // 画面に固定表示
+  top: 0; left: 0;               // 画面左上に配置
+  width: 100vw; height: 100vh;   // 画面全体を覆う
+  overflow: hidden;             // 内側がはみ出しても隠す
+  z-index: 9999;                // 最前面に表示
+  transform-origin: center center;
+
+  // 3D効果を与えるための視差の設定（JSで使うかも）
+  perspective: 1200px;
+
+  // なめらかなグラデーション背景
+  background: linear-gradient(270deg, #f0f8f0, #d0e8d0, #f0f8f0);
+  background-size: 600% 600%;
+
+  // グラデーションがゆっくり動くアニメーション
+  animation: bgGradientShift 10s ease infinite;
+}
+
+// 背景グラデーションが左右にゆっくり移動するアニメーション
+@keyframes bgGradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// =====================
+// ローディング中のアイテム（画像など）の共通スタイル
+// =====================
+.loading__item {
+  position: absolute;                 // ランダム位置に表示
+  will-change: transform, opacity;   // ブラウザにアニメのヒントを与えて最適化
+}
+
+// アイテム内の画像の共通スタイル（通常サイズ）
+.loading__item img {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+// 「大きい」フラグがついたアイテム用（通常の2倍）
+.loading__item--large img {
+  width: 80px;
+  height: 80px;
+}
+
+// =====================
+// meta-logo 表示アニメーション用
+// =====================
+.meta-logo {
+  position: fixed;                // 画面内に固定表示
+  top: 40%;                       // 画面のやや上に配置
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1); // 中央に配置
+  opacity: 0;                     // 初期は透明（非表示）
+  z-index: 20;                    // 手前に表示
+  width: 200px;
+  pointer-events: none;          // クリックなどを受け付けない
+}
+
+// JSで「.visible」がつくと表示状態になる
+.meta-logo.visible {
+  opacity: 1;
+}
+
+/* ==== ロゴを吸い込むアニメーション ==== */
+@keyframes logoZoomOut {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes loadingDisappear {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+/* アニメ用クラス */
+.meta-logo.zoomout {
+  animation: logoZoomOut 1s ease-in-out forwards;
+}
+
+.loading.disappear {
+  animation: loadingDisappear 1s ease-in-out forwards;
+}

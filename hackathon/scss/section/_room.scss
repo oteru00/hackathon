@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+@use '../base/mixins' as mix;
+
+.room {
+    margin: 40px auto;
+    max-width: 900px;
+    background: #fff;
+    padding: 20px 0;
+    border-radius: 8px;
+}
+
+.room h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.room__card-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+}
+  
+.room__card {
+    background: #fff;
+    border: 2px solid #bbb;
+    border-radius: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 24px;
+    transition: box-shadow 0.2s;
+    width: 240px;
+    flex: 0 0 auto;
+}

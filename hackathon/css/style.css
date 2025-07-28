@@ -1,0 +1,658 @@
+@charset "UTF-8";
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  -webkit-text-size-adjust: 100%;
+  height: auto;
+  min-height: 100vh;
+  font-size: 1.6rem;
+  color: #333333;
+  font-family: "logo-cut-std", "DotGothic16", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  background: #DFF3E3;
+}
+
+* img {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+a {
+  color: #333333;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo-style {
+  font-size: 15rem;
+  font-weight: bold;
+}
+.logo-style span {
+  color: #22978C;
+}
+
+#loading-item {
+  display: none;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9999;
+  transform-origin: center center;
+  perspective: 1200px;
+  background: linear-gradient(270deg, #f0f8f0, #d0e8d0, #f0f8f0);
+  background-size: 600% 600%;
+  animation: bgGradientShift 10s ease infinite;
+}
+
+@keyframes bgGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.loading__item {
+  position: absolute;
+  will-change: transform, opacity;
+}
+
+.loading__item img {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.loading__item--large img {
+  width: 80px;
+  height: 80px;
+}
+
+.meta-logo {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  z-index: 20;
+  width: 200px;
+  pointer-events: none;
+}
+
+.meta-logo.visible {
+  opacity: 1;
+}
+
+/* ==== ロゴを吸い込むアニメーション ==== */
+@keyframes logoZoomOut {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+@keyframes loadingDisappear {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+/* アニメ用クラス */
+.meta-logo.zoomout {
+  animation: logoZoomOut 1s ease-in-out forwards;
+}
+
+.loading.disappear {
+  animation: loadingDisappear 1s ease-in-out forwards;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+header .header-inner .logo img {
+  height: 50px;
+  display: block;
+}
+header .header-inner .hamburger {
+  cursor: pointer;
+  user-select: none;
+  width: 100px;
+  position: relative;
+}
+header .header-inner .hamburger::after {
+  content: "menu";
+  display: block;
+  position: absolute;
+  font-weight: bold;
+  top: 70px;
+  left: 30px;
+}
+header .header-inner .hamburger img {
+  display: block;
+  width: 100%;
+}
+header nav {
+  display: none;
+  background: #8DE4B7;
+  width: 15%;
+  right: 30px;
+  position: absolute;
+  border-radius: 50px;
+  padding: 30px 0;
+}
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+}
+header nav ul li {
+  margin-bottom: 8px;
+  border-bottom: 3px dotted #D3FFEE;
+  padding-top: 30px;
+}
+header nav ul li:first-of-type {
+  padding-top: 0;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+}
+header nav ul li a:hover {
+  color: #007a33;
+}
+
+.loading {
+  overflow: hidden;
+}
+
+body.no-scroll {
+  height: 100vh;
+}
+
+.main-visual {
+  position: relative;
+  width: 100%;
+  height: 130vh;
+  background: #DFF3E3;
+}
+.main-visual .main-visual-video {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  background: transparent;
+  clip-path: inset(0% round 30px);
+  transition: clip-path 0.3s ease, transform 0.3s ease;
+  transform-origin: center;
+  z-index: 0;
+}
+
+.center-logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: -10;
+  pointer-events: none;
+  transition: 0.6s ease, transform 0.6s ease;
+}
+
+.center-logo.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(2);
+  z-index: 100;
+}
+
+.sec-tit {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.avatar-area {
+  display: flex;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about-text li {
+  list-style: outside;
+  list-style-type: disc;
+  padding-left: 0;
+}
+
+/* セクション全体 */
+.floor-section {
+  padding: 60px 20px;
+  background-color: #F5F5DC;
+  padding: 41rem 0 20.9rem;
+  text-align: center;
+  mask: linear-gradient(0, rgba(0, 0, 0, 0) 160px, #000 0), radial-gradient(160px, #000 calc(100% - 1px), rgba(0, 0, 0, 0)) bottom/296px 320px;
+}
+
+/* タイトル */
+.floor-section h2 {
+  display: inline-block;
+  background: #fff;
+  padding: 15px 70px;
+  border-radius: 40px;
+  font-size: 3rem;
+  letter-spacing: 0.5em;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 40px;
+  animation: pulsePop 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+.floor-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 15px solid transparent;
+  border-top-color: #fff;
+}
+
+/* カードリスト */
+.card-list {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* カードのスタイル */
+.card {
+  border-radius: 25px;
+  width: 100%;
+  padding: 30px;
+  overflow: hidden; /* 横にはみ出さないように */
+  transition: max-width 0.5s ease, border-radius 0.5s ease, box-shadow 0.5s ease;
+  /* 必要に応じて他の動きも */
+}
+
+.card:nth-of-type(1) {
+  background-color: #91D2AF;
+}
+
+.card:nth-of-type(2) {
+  background-color: #C0E5D1;
+}
+
+.card:nth-of-type(3) {
+  background-color: #DFF3E3;
+}
+
+/* ボタンの基本スタイル */
+.card button {
+  margin-top: 8rem;
+  background-color: #f0f8ff;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  /* アニメーションはホバー時だけ発火させる */
+  transition: none; /* 既存のtransitionは無効にする */
+}
+
+/* ホバー中にバウンスアニメーションを適用 */
+.card:hover button {
+  animation: bounce 0.6s forwards;
+}
+
+/* バウンスアニメーションの定義 */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* 拡大したときの状態 */
+.card.expand {
+  max-width: 100vw;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+/* カードタイトルの文字サイズと見た目 */
+.card-title {
+  margin-bottom: 5rem;
+  font-size: 2rem;
+  margin-top: 15px;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* アニメーション用、フェードイン＆動き */
+.visited {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.room {
+  margin: 40px auto;
+  max-width: 900px;
+  background: #fff;
+  padding: 20px 0;
+  border-radius: 8px;
+}
+
+.room h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.room__card-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+
+.room__card {
+  background: #fff;
+  border: 2px solid #bbb;
+  border-radius: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 24px;
+  transition: box-shadow 0.2s;
+  width: 240px;
+  flex: 0 0 auto;
+}
+
+.voices {
+  padding: 40px 0;
+  text-align: center;
+}
+.voices h2 {
+  display: inline-block;
+  background: #fff;
+  padding: 15px 70px;
+  border-radius: 40px;
+  font-size: 3rem;
+  letter-spacing: 0.5em;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 40px;
+  animation: pulsePop 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+.voices h2::after {
+  content: "";
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 15px solid transparent;
+  border-top-color: #fff;
+}
+@keyframes pulsePop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.voices .slider-container {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  height: 360px;
+}
+.voices .voice-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.voices .voice-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #c2f7de 0%, #b1eecf 50%, #d5f3ff 100%);
+  border-radius: 30px;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.voices .voice-card p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #333;
+  flex-grow: 1;
+}
+.voices .voice-card img {
+  display: block;
+  height: 100px;
+  object-fit: contain;
+  margin: auto;
+  transition: transform 0.3s ease;
+}
+.voices .voice-card.is-center:hover img {
+  transform: scale(1.3);
+}
+.voices .nav-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.voices .nav-buttons button {
+  position: relative;
+  overflow: hidden;
+  margin: 0 10px;
+  padding: 8px 24px;
+  background: #57c4ad;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.voices .nav-buttons button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-20deg);
+}
+.voices .nav-buttons button:hover {
+  background: #45a393;
+  transform: translateY(-2px) scale(1.05);
+}
+.voices .nav-buttons button:hover::before {
+  animation: shine 0.8s ease forwards;
+}
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+footer .avatar-area {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+footer .avatar-area .avatar-rotate {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+footer .avatar-area .avatar-rotate img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: none;
+}
+
+.avatar-scroll-rotate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 800px 0;
+}
+.avatar-scroll-rotate .avatar {
+  position: relative;
+  width: 30vw;
+}
+.avatar-scroll-rotate .avatar img {
+  display: none;
+  width: 100%;
+}
+.avatar-scroll-rotate .avatar img.active {
+  display: block;
+}
+
+/*# sourceMappingURL=style.css.map */
