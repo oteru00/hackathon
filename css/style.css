@@ -63,7 +63,7 @@ body {
   min-height: 100vh;
   font-size: 1.6rem;
   color: #333333;
-  font-family: "logo-cut-std", sans-serif;
+  font-family: "logo-cut-std", "DotGothic16", sans-serif;
   font-weight: 300;
   font-style: normal;
   background: #DFF3E3;
@@ -364,6 +364,98 @@ body.no-scroll {
   list-style: outside;
   list-style-type: disc;
   padding-left: 0;
+}
+
+/* セクション全体 */
+.floor-section {
+  padding: 60px 20px;
+  background-color: #D3FFEE;
+  text-align: center;
+}
+
+/* タイトル */
+.floor-section h2 {
+  font-size: 3rem; /* 大きく */
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* カードリスト */
+.card-list {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* カードのスタイル - 大きく丸みも増やす */
+.card {
+  background: #fff;
+  border-radius: 25px; /* 大きめの丸み */
+  width: 100%; /* 大きめ */
+  padding: 30px;
+}
+
+/* 画像も大きく */
+.card img {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px; /* 角丸を大きく */
+  display: block;
+}
+
+/* カードタイトルの文字サイズと見た目 */
+.card-title {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-size: 1.8rem; /* 大きく */
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
+
+/* アニメーション用、フェードイン＆動き */
+.visited {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.room {
+  margin: 40px auto;
+  max-width: 900px;
+  background: #fff;
+  padding: 20px 0;
+  border-radius: 8px;
+}
+
+.room h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.room__card-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+
+.room__card {
+  background: #fff;
+  border: 2px solid #bbb;
+  border-radius: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 24px;
+  transition: box-shadow 0.2s;
+  width: 240px;
+  flex: 0 0 auto;
 }
 
 .voices {
