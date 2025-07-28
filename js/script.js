@@ -138,3 +138,11 @@ $(function () {
     slideTo(currentIndex, true);
   });
 });
+
+// ページ内のすべてのボタンにイベントを設定
+document.querySelectorAll('.expand-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.card');
+    card.classList.toggle('expand');
+  });
+});
