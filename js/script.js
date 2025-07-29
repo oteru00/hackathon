@@ -145,4 +145,32 @@ document.querySelectorAll('.expand-btn').forEach(btn => {
     const card = btn.closest('.card');
     card.classList.toggle('expand');
   });
+
+    const $cards = $('.room__card');
+  const windowHeight = $(window).height();
+
+  function checkVisibleCards() {
+    const scrollTop = $(window).scrollTop();
+
+    $cards.each(function(index) {
+      const $card = $(this);
+      if ($card.hasClass('is-visible')) return; // すでに表示済みはスキップ
+
+      const cardTop = $card.offset().top;
+
+      // 画面下から100px手前に入ったら発火
+      if (scrollTop + windowHeight > cardTop + 100) {
+        // 少し遅延を入れて順番にフェードイン
+        setTimeout(() => {
+          $card.addClass('is-visible');
+        }, index * 250); // indexに応じて300msずつ遅らせる
+      }
+    });
+  }
+
+  // 初回チェック
+  checkVisibleCards();
+
+  // スクロール時もチェック
+  $(window).on('scroll', checkVisibleCards);
 });

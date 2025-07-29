@@ -2,3 +2,134 @@
 
 @use '../base/mixins' as mix;
 
+.room {
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+    }
+}
+
+.room__card-list {
+    position: relative;
+    width: 100%;
+    height: 700px;
+}
+
+.room__card {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+    animation: float 4s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 6px solid transparent; // 初期は透明ボーダー
+
+    // SVG紐のスタイル
+    .string-svg {
+        position: absolute;
+        bottom: -15vh; // ビューポート高さの15%
+        left: 50%;
+        transform: translateX(-50%);
+        height: 15vh; // 高さも同様に相対的に
+        width: 2vw; // 幅も画面幅に合わせて柔軟に
+        max-width: 20px; // 上限を設けてPCで太くなりすぎないように
+        animation: wave-string 8s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    h3 {
+        z-index: 2;
+    }
+}
+
+// 風船の上下ふわふわアニメーション
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+// 紐のくねくね揺れを風船動きに合わせて反転させ自然に
+@keyframes wave-string {
+
+    0%,
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(-50%) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(3deg);
+    }
+
+    75% {
+        transform: translateX(-50%) rotate(-3deg);
+    }
+}
+
+.room__card img {
+    width: 300px;
+    height: 170px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+// 各風船の配置位置
+.room__card:nth-child(1) {
+    top: 8vh; // 画面高の8%
+    left: 5vw; // 画面幅の5%
+    border-color: #F7DAD9;
+}
+
+.room__card:nth-child(2) {
+    top: 20vh;
+    left: 37vw;
+    border-color: #F9E4B7;
+}
+
+.room__card:nth-child(3) {
+    top: 8vh;
+    right: 5vw;
+    border-color: #E3F6F5;
+}
+
+.room__card:nth-child(4) {
+    top: 80vh;
+    left: 15vw;
+    border-color: #E8F0D9;
+}
+
+.room__card:nth-child(5) {
+    top: 80vh;
+    right: 15vw;
+    border-color: #EDE6F2;
+}
+
+.room__card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.room__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
