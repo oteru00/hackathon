@@ -55,3 +55,62 @@ li {
         color: #22978C;
     }
 }
+
+.runner {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    z-index: 1;
+    background: transparent;
+}
+
+.runner-group {
+    display: flex;
+    position: absolute;
+    top: 0;
+    /* 最初は画面の右外からスタート */
+    transform: translateX(100vw);
+    animation: runRightToLeft 6s linear infinite;
+    will-change: transform;
+}
+
+.runner img {
+    width: 120px;
+    margin-right: 50px;
+}
+
+@keyframes runRightToLeft {
+    0% {
+        transform: translateX(100vw);
+        /* ← 画面の右外からスタート */
+    }
+
+    100% {
+        transform: translateX(-100%);
+        /* ← 左へ流れて終了 */
+    }
+}
+
+.runner.runner-left .runner-group {
+    transform: translateX(-100%);
+    animation: runLeftToRight 6s linear infinite;
+}
+
+@keyframes runLeftToRight {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+.runner-right{
+    margin-top: 50px;
+}
+
+.runner-left{
+    margin-top: 440px;
+}

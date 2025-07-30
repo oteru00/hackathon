@@ -24,3 +24,30 @@ footer .avatar-area {
         }
     }
 }
+
+footer .instagram {
+    text-align: center;
+    padding-bottom: 60px;
+
+    p {
+        font-weight: bold;
+        color: #57c4ad;
+    }
+
+    .instagram_item {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+
+        a {
+            background: #fff;
+            border-radius: 50%;
+            margin-top: 10px;
+
+            img {
+                width: 60px;
+                padding: 15px;
+            }
+        }
+    }
+}
