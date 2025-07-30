@@ -63,6 +63,10 @@ li {
     overflow: hidden;
     z-index: 1;
     background: transparent;
+
+    @include mix.sp {
+        height: 125px;
+    }
 }
 
 .runner-group {
@@ -73,11 +77,23 @@ li {
     transform: translateX(100vw);
     animation: runRightToLeft 6s linear infinite;
     will-change: transform;
+
+    @include mix.tab {
+        animation: runRightToLeftSp 5s linear infinite;
+    }
+
+    @include mix.sp {
+        transform: translateX(140vw); // ← もっと外から開始
+    }
 }
 
 .runner img {
     width: 120px;
     margin-right: 50px;
+
+    @include mix.sp {
+        width: 100px;
+    }
 }
 
 @keyframes runRightToLeft {
@@ -92,9 +108,27 @@ li {
     }
 }
 
+@keyframes runRightToLeftSp {
+    0% {
+        transform: translateX(140vw);
+    }
+
+    100% {
+        transform: translateX(-140%);
+    }
+}
+
 .runner.runner-left .runner-group {
     transform: translateX(-100%);
     animation: runLeftToRight 6s linear infinite;
+
+    @include mix.tab {
+        animation: runLeftToRightSp 5s linear infinite;
+    }
+
+    @include mix.sp {
+        transform: translateX(-140%);
+    }
 }
 
 @keyframes runLeftToRight {
@@ -107,10 +141,40 @@ li {
     }
 }
 
-.runner-right{
+@keyframes runLeftToRightSp {
+    0% {
+        transform: translateX(-140%);
+    }
+
+    100% {
+        transform: translateX(140vw);
+    }
+}
+
+.runner-right {
     margin-top: 50px;
 }
 
-.runner-left{
+.runner-left {
     margin-top: 440px;
+
+    @include mix.tab {
+        margin-top: 845px;
+    }
+
+    @include mix.sp {
+        margin-top: 345px;
+    }
+
+    @include mix.fix-394 {
+        margin-top: 225px;
+    }
+
+    @include mix.fix-376 {
+        margin-top: 170px;
+    }
+
+    @include mix.fix-361 {
+        margin-top: 125px;
+    }
 }

@@ -29,8 +29,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     border: 6px solid transparent; // 初期は透明ボーダー
+
+    @include mix.tab {
+        width: 45vw;
+        height: 35vh;
+    }
+
+    @include mix.sp {
+        width: 50vw;
+        height: 23vh;
+    }
+
+    @include mix.fix-394 {
+        height: 26vh;
+    }
 
     // SVG紐のスタイル
     .string-svg {
@@ -43,6 +56,10 @@
         max-width: 20px; // 上限を設けてPCで太くなりすぎないように
         animation: wave-string 8s ease-in-out infinite;
         pointer-events: none;
+
+        @include mix.tab {
+            width: 3vw;
+        }
     }
 
     h3 {
@@ -90,6 +107,20 @@
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 10px;
+
+    @include mix.tab {
+        width: 34vw;
+        height: 15vh;
+    }
+
+    @include mix.sp {
+        width: 35vw;
+        height: 10vh;
+    }
+
+    @include mix.fix-394 {
+        height: 11vh;
+    }
 }
 
 // 各風船の配置位置
@@ -97,30 +128,80 @@
     top: 8vh; // 画面高の8%
     left: 5vw; // 画面幅の5%
     border-color: #F7DAD9;
+
+    @include mix.tab {
+        left: 3vw;
+    }
 }
 
 .room__card:nth-child(2) {
     top: 20vh;
     left: 37vw;
     border-color: #F9E4B7;
+
+    @include mix.tab {
+        top: 19vh;
+        left: 51vw;
+    }
+
+    @include mix.sp {
+        top: 23vh;
+        left: 47vw;
+    }
+
 }
 
 .room__card:nth-child(3) {
     top: 8vh;
     right: 5vw;
     border-color: #E3F6F5;
+
+    @include mix.tab {
+        top: 56vh;
+        right: 52vw;
+    }
+
+    @include mix.sp {
+        top: 40vh;
+        right: 46vw;
+    }
+
+    @include mix.fix-394 {
+        top: 43vh;
+    }
+
 }
 
 .room__card:nth-child(4) {
     top: 80vh;
     left: 15vw;
     border-color: #E8F0D9;
+
+    @include mix.tab {
+        top: 69vh;
+        left: 51vw;
+    }
+
+    @include mix.sp {
+        top: 60vh;
+        left: 46vw;
+    }
 }
 
 .room__card:nth-child(5) {
     top: 80vh;
     right: 15vw;
     border-color: #EDE6F2;
+
+    @include mix.tab {
+        top: 102vh;
+        right: 40vw;
+    }
+
+    @include mix.sp {
+        top: 78vh;
+        right: 46vw;
+    }
 }
 
 .room__card {

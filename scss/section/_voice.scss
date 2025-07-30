@@ -19,6 +19,10 @@
         animation: pulsePop 2.5s ease-in-out infinite;
         transform-origin: center;
 
+        @include mix.sp {
+            font-size: 2.5rem;
+        }
+
         &::after {
             content: "";
             position: absolute;

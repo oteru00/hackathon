@@ -1,17 +1,34 @@
 @charset "UTF-8";
 
-@mixin pc {
-    @media (min-width: (1280px)) {
-        @content;
-    }
-}
+// タブレット（441px〜768px）
 @mixin tab {
-    @media (min-width: (768px)) {
+    @media (max-width: 768px) {
         @content;
     }
 }
+
+// スマホ（〜440pxまで）
 @mixin sp {
-    @media (min-width: (390px)) {
+    @media (max-width: 440px) {
+        @content;
+    }
+}
+
+// 一部だけ細かく調整したいとき用（任意で追加）
+@mixin fix-394 {
+    @media (max-width: 394px) {
+        @content;
+    }
+}
+
+@mixin fix-376 {
+    @media (max-width: 376px) {
+        @content;
+    }
+}
+
+@mixin fix-361 {
+    @media (max-width: 361px) {
         @content;
     }
 }

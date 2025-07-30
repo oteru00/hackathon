@@ -109,6 +109,14 @@
     // margin-top: 2em;
     letter-spacing: 0.05em;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+
+        @include mix.sp {
+        font-size: 1.5rem;
+    }
+
+    @include mix.fix-394 {
+        font-size: 1.2rem;
+    }
 }
 
 /* アニメーション用、フェードイン＆動き */
