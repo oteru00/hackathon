@@ -3,9 +3,36 @@
 @use '../base/mixins' as mix;
 
 .room {
+
+    padding-bottom: 410px;
+
+    @include mix.tab {
+        padding-bottom: 845px;
+    }
+
+    @include mix.sp {
+        padding-bottom: 380px;
+    }
+
+    @include mix.fix-394 {
+        padding-bottom: 260px;
+    }
+
+    @include mix.fix-376 {
+        padding-bottom: 200px;
+    }
+
+    @include mix.fix-361 {
+        padding-bottom: 95px;
+    }
+
     h2 {
         text-align: center;
         font-size: 3rem;
+
+        @include mix.fix-394 {
+            font-size: 2.5rem;
+        }
     }
 }
 
@@ -17,43 +44,50 @@
 
 .room__card {
     position: absolute;
-    width: 400px;
-    height: 400px;
+    width: 24%;
+    height: 51%;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 10px;
     animation: float 4s ease-in-out infinite;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 6px solid transparent; // 初期は透明ボーダー
+    border: 6px solid transparent;
 
     @include mix.tab {
-        width: 45vw;
-        height: 35vh;
+        width: 45%;
+        height: 49%;
     }
 
     @include mix.sp {
-        width: 50vw;
-        height: 23vh;
+        width: 50%;
+        height: 31%;
     }
 
     @include mix.fix-394 {
-        height: 26vh;
+        height: 28%;
+    }
+
+    @include mix.fix-376 {
+        height: 27%;
+    }
+
+    @include mix.fix-361 {
+        height: 26%;
     }
 
     // SVG紐のスタイル
     .string-svg {
         position: absolute;
-        bottom: -15vh; // ビューポート高さの15%
+        bottom: -15vh;
         left: 50%;
         transform: translateX(-50%);
-        height: 15vh; // 高さも同様に相対的に
-        width: 2vw; // 幅も画面幅に合わせて柔軟に
-        max-width: 20px; // 上限を設けてPCで太くなりすぎないように
+        height: 15vh;
+        width: 2vw;
+        max-width: 20px;
         animation: wave-string 8s ease-in-out infinite;
         pointer-events: none;
 
@@ -102,31 +136,31 @@
 }
 
 .room__card img {
-    width: 300px;
-    height: 170px;
+    width: 79%;
+    height: 46%;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 10px;
 
     @include mix.tab {
-        width: 34vw;
-        height: 15vh;
+        width: 77%;
+        height: 45%;
     }
 
     @include mix.sp {
-        width: 35vw;
-        height: 10vh;
+        width: 75%;
+        height: 43%;
     }
 
     @include mix.fix-394 {
-        height: 11vh;
+        height: 45%;
     }
 }
 
 // 各風船の配置位置
 .room__card:nth-child(1) {
-    top: 8vh; // 画面高の8%
-    left: 5vw; // 画面幅の5%
+    top: 8vh;
+    left: 5vw;
     border-color: #F7DAD9;
 
     @include mix.tab {
@@ -148,7 +182,6 @@
         top: 23vh;
         left: 47vw;
     }
-
 }
 
 .room__card:nth-child(3) {
@@ -162,18 +195,17 @@
     }
 
     @include mix.sp {
-        top: 40vh;
+        top: 42vh;
         right: 46vw;
     }
 
     @include mix.fix-394 {
         top: 43vh;
     }
-
 }
 
 .room__card:nth-child(4) {
-    top: 80vh;
+    top: 77vh;
     left: 15vw;
     border-color: #E8F0D9;
 
@@ -183,13 +215,13 @@
     }
 
     @include mix.sp {
-        top: 60vh;
+        top: 62vh;
         left: 46vw;
     }
 }
 
 .room__card:nth-child(5) {
-    top: 80vh;
+    top: 77vh;
     right: 15vw;
     border-color: #EDE6F2;
 
@@ -199,7 +231,7 @@
     }
 
     @include mix.sp {
-        top: 78vh;
+        top: 80vh;
         right: 46vw;
     }
 }

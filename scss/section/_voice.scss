@@ -50,7 +50,6 @@
     }
 
     .slider-container {
-        // max-width: 1000px;
         width: 100%;
         margin: 0 auto;
         overflow: hidden;
@@ -138,7 +137,7 @@
             overflow: hidden; // キランがはみ出ないように
             margin: 0 10px;
             padding: 8px 24px;
-            background: #7ab0ae; // グラデーション中の落ち着いたブルーグリーンに近い単色
+            background: #7ab0ae; 
             color: #fff;
             border: none;
             border-radius: 9999px;
@@ -161,7 +160,7 @@
             }
 
             &:hover {
-                background: #92c9c7; // 少し明るく鮮やかなブルーグリーンに変更
+                background: #92c9c7; 
                 transform: translateY(-2px) scale(1.05);
 
                 &::before {

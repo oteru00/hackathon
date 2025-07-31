@@ -13,11 +13,15 @@
         font-size: 9rem;
 
         @include mix.tab {
-            font-size: 6rem;
+            font-size: 5rem;
         }
 
         @include mix.sp {
             font-size: 3rem;
+        }
+
+        @include mix.fix-376 {
+            font-size: 2.5rem;
         }
     }
 
@@ -28,16 +32,33 @@
         border-radius: 20px;
         border-top: dotted 1px #333;
 
-        @include mix.sp {
-            padding: 25px 70px 25px 100px;
-
-            p {
-                font-size: 1.5rem;
-            }
+        @include mix.tab {
+            padding: 40px 170px;
         }
+
 
         @include mix.sp {
             padding: 25px 60px 25px 100px;
+        }
+
+        @include mix.fix-394 {
+            padding: 25px 65px 25px 90px;
+        }
+
+        p {
+            @include mix.sp {
+                font-size: 1.5rem;
+            }
+
+            @include mix.fix-376 {
+                font-size: 1.2rem;
+            }
+        }
+
+        a {
+            @include mix.fix-376 {
+                font-size: 1.2rem;
+            }
         }
 
         &:first-of-type {
@@ -68,15 +89,21 @@
             }
         }
 
-
         .accordion-inner {
             display: none;
+        }
+
+        h3 {
+            @include mix.fix-376 {
+                font-size: 1.5rem;
+            }
         }
     }
 
     .open {
         &::after {
             transform: rotate(45deg);
+
         }
     }
 
@@ -88,12 +115,16 @@
         font-size: 10rem;
 
         @include mix.tab {
-            font-size: 8rem;
+            font-size: 6rem;
         }
 
         @include mix.sp {
-            font-size: 5rem;
+            font-size: 4.5rem;
             left: 30px;
+        }
+
+        @include mix.fix-394 {
+            font-size: 3.5rem;
         }
     }
 }

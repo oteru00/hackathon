@@ -155,26 +155,14 @@ li {
     margin-top: 50px;
 }
 
-.runner-left {
-    margin-top: 440px;
+.tab-br {
+    display: none;
 
     @include mix.tab {
-        margin-top: 845px;
+        display: block;
     }
 
     @include mix.sp {
-        margin-top: 345px;
-    }
-
-    @include mix.fix-394 {
-        margin-top: 225px;
-    }
-
-    @include mix.fix-376 {
-        margin-top: 170px;
-    }
-
-    @include mix.fix-361 {
-        margin-top: 125px;
+        display: none;
     }
 }
