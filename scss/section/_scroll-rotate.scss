@@ -20,6 +20,10 @@
             &.active {
                 display: block;
             }
+
+            @include mix.tab{
+                margin-bottom: 5vh;
+            }
         }
 
     }

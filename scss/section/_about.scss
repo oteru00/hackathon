@@ -3,7 +3,8 @@
 @use '../base/mixins' as mix;
 
 .sec-tit {
-    width: fit-content;
+    width: 100%;
+    text-align: center;
     margin: 0 auto 50px;
     opacity: 0;
 }
@@ -11,14 +12,13 @@
 .avatar-area {
     display: flex;
     justify-content: center;
-    gap: 20px;
     margin: 100px 0 60px;
     padding: 0 20px;
+    width: 100%;
 
     img {
-        width: 250px;
-        height: auto;
-        max-width: 100%;
+        width: 100%;
+        object-fit: cover;
 
         @include mix.sp {
             width: 80px;

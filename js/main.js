@@ -150,7 +150,7 @@ $(function () {
       $centerLogo.css({
         'z-index': -10,
         'transition': 'z-index 0.5s ease',
-        'opacity': 0.5
+        'opacity': 0.5,
       });
     } else {
       // 元に戻す
