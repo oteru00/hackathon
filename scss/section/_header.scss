@@ -3,7 +3,6 @@
 @use '../base/mixins' as mix;
 
 header {
-    // position: absolute; // または fixed（スクロールに追従させるなら fixed）
     position: fixed;
     top: 0;
     left: 0;
@@ -17,30 +16,58 @@ header {
         padding: 0 10px;
 
         .logo {
-            img {
-                height: 50px;
-                display: block;
-            }
-        }
+            width: 15%;
 
-        .hamburger {
-            cursor: pointer;
-            user-select: none;
-            width: 100px;
-            position: relative;
-
-            &::after {
-                content: "menu";
-                display: block;
-                position: absolute;
-                font-weight: bold;
-                top: 70px;
-                left: 30px;
+            @include mix.tab {
+                width: 25%;
             }
 
             img {
                 display: block;
                 width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            width: 5%;
+            margin-top: 10px;
+
+            @include mix.tab {
+                width: 7%;
+            }
+
+            @include mix.sp {
+                width: 8%;
+            }
+
+            img {
+                width: 78%; // ✅ 横幅だけ指定して自然に縮小
+                height: auto; // ✅ アスペクト比を保つ
+                object-fit: contain;
+            }
+
+            .menu-label {
+                font-weight: bold;
+                font-size: 1.4rem;
+                margin-top: -3px;
+
+                @include mix.tab {
+                    font-size: 1.3rem;
+                }
+
+                @include mix.sp {
+                    font-size: 1rem;
+                }
+
+                @include mix.fix-394 {
+                    font-size: 0.8rem;
+                }
             }
         }
     }
@@ -52,7 +79,20 @@ header {
         right: 30px;
         padding: 30px 0;
         border-radius: 50px;
-        overflow: hidden; // 中の動画がはみ出さないように
+        overflow: hidden; 
+
+        @include mix.tab {
+            width: 28%;
+        }
+
+        @include mix.sp {
+            width: 40%;
+        }
+
+        @include mix.fix-394 {
+            padding: 20px 0;
+            width: 50%;
+        }
 
         .nav-bg-video {
             position: absolute;
@@ -65,7 +105,7 @@ header {
         }
 
         ul {
-            position: relative; // z-indexを効かせるため
+            position: relative; 
             z-index: 1;
             list-style: none;
             margin: 0;
@@ -74,7 +114,6 @@ header {
 
             li {
                 margin-bottom: 8px;
-                // border-bottom: 3px dotted #F2A541;
                 padding-top: 30px;
 
                 &:first-of-type {
@@ -86,12 +125,23 @@ header {
                     text-decoration: none;
                     font-weight: 600;
                     font-size: 1.6rem;
-                    display: inline-block; // translateYが効くように
-
+                    display: inline-block; 
                     transition: transform 0.3s ease;
 
+                    @include mix.sp {
+                        font-size: 1.4rem;
+                    }
+
+                    @include mix.fix-394 {
+                        font-size: 1.2rem;
+                    }
+
+                    @include mix.fix-361 {
+                        font-size: 1.1rem;
+                    }
+
                     &:hover {
-                        transform: translateY(-5px); // 5px上に上がる
+                        transform: translateY(-5px); 
                     }
                 }
             }

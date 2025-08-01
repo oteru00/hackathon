@@ -6,6 +6,19 @@
 .floor-section {
     padding: 2.2rem 0 6em;
     text-align: center;
+
+    @include mix.tab {
+        padding-bottom: 760px;
+    }
+
+    @include mix.sp {
+        padding-bottom: 580px;
+    }
+
+    @include mix.fix-394 {
+        padding-bottom: 530px;
+    }
+
 }
 
 /* タイトル */
@@ -19,6 +32,10 @@
     display: flex;
     justify-content: center;
     height: 75vh;
+
+    @include mix.tab {
+        display: block;
+    }
 }
 
 /* カードのスタイル */
@@ -53,9 +70,11 @@
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    /* アニメーションはホバー時だけ発火させる */
     transition: none;
-    /* 既存のtransitionは無効にする */
+
+    @include mix.tab {
+        margin-top: 3rem;
+    }
 }
 
 /* ホバー中にバウンスアニメーションを適用 */
@@ -106,9 +125,16 @@
 .card-title {
     margin-bottom: 1em;
     font-size: 2rem;
-    // margin-top: 2em;
     letter-spacing: 0.05em;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+
+    @include mix.sp {
+        font-size: 1.5rem;
+    }
+
+    @include mix.fix-394 {
+        font-size: 1.2rem;
+    }
 }
 
 /* アニメーション用、フェードイン＆動き */
