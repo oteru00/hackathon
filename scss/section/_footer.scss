@@ -14,6 +14,16 @@ footer .avatar-area {
         height: 120px;
         position: relative;
 
+        @include mix.sp {
+            width: 85px;
+            height: 100px;
+        }
+
+        @include mix.fix-394 {
+            width: 70px;
+            height: 60px;
+        }
+
         img {
             position: absolute;
             top: 0;
@@ -21,6 +31,33 @@ footer .avatar-area {
             width: 100%;
             height: auto;
             display: none;
+        }
+    }
+}
+
+footer .instagram {
+    text-align: center;
+    padding-bottom: 60px;
+
+    p {
+        font-weight: bold;
+        color: #57c4ad;
+    }
+
+    .instagram_item {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+
+        a {
+            background: #fff;
+            border-radius: 50%;
+            margin-top: 10px;
+
+            img {
+                width: 60px;
+                padding: 15px;
+            }
         }
     }
 }

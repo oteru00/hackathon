@@ -3,7 +3,6 @@
 @use '../base/mixins' as mix;
 
 .voices {
-    font-family: 'Noto Sans JP', sans-serif;
     padding: 40px 0;
     text-align: center;
 
@@ -19,6 +18,10 @@
         margin-bottom: 40px;
         animation: pulsePop 2.5s ease-in-out infinite;
         transform-origin: center;
+
+        @include mix.sp {
+            font-size: 2.5rem;
+        }
 
         &::after {
             content: "";
@@ -47,7 +50,6 @@
     }
 
     .slider-container {
-        // max-width: 1000px;
         width: 100%;
         margin: 0 auto;
         overflow: hidden;
@@ -71,7 +73,12 @@
         width: 250px;
         height: 300px;
         transform: translate(-50%, -50%);
-        background: linear-gradient(135deg, #c2f7de 0%, #b1eecf 50%, #d5f3ff 100%);
+        background: linear-gradient(45deg,
+                #eaf9f8 0%,
+                #c6e9e7 40%,
+                #aacfcf 75%,
+                #c6e9e7 90%,
+                #eaf9f8 100%);
         border-radius: 30px;
         padding: 20px 15px;
         box-sizing: border-box;
@@ -80,6 +87,22 @@
         justify-content: space-between;
         text-align: left;
         transition: transform 0.4s ease, filter 0.4s ease;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 16%) 0 0,
+                radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 16%) 10px 10px;
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: 0;
+            border-radius: 30px;
+        }
 
         p {
             font-size: 1.6rem;
@@ -114,7 +137,7 @@
             overflow: hidden; // キランがはみ出ないように
             margin: 0 10px;
             padding: 8px 24px;
-            background: #57c4ad;
+            background: #7ab0ae; 
             color: #fff;
             border: none;
             border-radius: 9999px;
@@ -122,7 +145,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
 
-            // キラン部分
             &::before {
                 content: "";
                 position: absolute;
@@ -138,7 +160,7 @@
             }
 
             &:hover {
-                background: #45a393;
+                background: #92c9c7; 
                 transform: translateY(-2px) scale(1.05);
 
                 &::before {

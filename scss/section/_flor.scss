@@ -2,86 +2,107 @@
 
 @use '../base/mixins' as mix;
 
-/* セクション全体 */
+/* =======================
+   セクション全体
+======================= */
 .floor-section {
-  padding: 60px 20px;
-  background-color: #F5F5DC;
-  padding: 41rem 0 20.9rem;
+  padding: 2.2rem 0 6em;
   text-align: center;
-  mask:
-    linear-gradient(0, #0000 160px, #000 0),
-    radial-gradient(160px, #000 calc(100% - 1px), #0000) bottom/296px 320px;
-}
 
-/* タイトル */
-.floor-section h2 {
-  display: inline-block;
-  background: #fff;
-  padding: 15px 70px;
-  border-radius: 40px;
-  font-size: 3rem;
-  letter-spacing: 0.5em;
-  font-weight: 700;
-  position: relative;
-  margin-bottom: 40px;
-  animation: pulsePop 2.5s ease-in-out infinite;
-  transform-origin: center;
+  @include mix.tab {
+    padding-bottom: 760px;
+  }
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -28px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 15px solid transparent;
-    border-top-color: #fff;
+  @include mix.sp {
+    padding-bottom: 580px;
+  }
+
+  @include mix.fix-394 {
+    padding-bottom: 530px;
+  }
+
+  /* タイトル */
+  h2 {
+    padding-bottom: 40px;
+    font-size: 3rem;
   }
 }
 
-/* カードリスト */
+/* =======================
+   カードリスト
+======================= */
 .card-list {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  /* 高さは固定 */
-  transition: all 0.5s ease;
-}
+  height: 75vh;
 
-/* カードのスタイル */
-.card {
-  width: calc(100% / 3);
-  border-radius: 25px;
-  padding: 30px;
-  overflow: hidden;
-  transition: 0.5s ease, border-radius 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease;
-}
-
-.card:nth-of-type(1) {
-  background-color: #91D2AF;
-}
-
-.card:nth-of-type(2) {
-  background-color: #C0E5D1;
-}
-
-.card:nth-of-type(3) {
-  background-color: #DFF3E3;
-}
-
-/* 拡大したとき */
-.card.expand {
-  width: 100%;
-  height: 100vh;
-  border-radius: 10px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-
-  .expand-btn {
-    display: none;
+  @include mix.tab {
+    display: flex;
+    flex-direction: column;
+    height: auto;
   }
 
-  .close-btn {
+  /* 他のカードは縮んで消える */
+  &.has-expand {
+    .card:not(.expand) {
+      display: none;
+      pointer-events: none;
+    }
+  }
+}
+
+/* =======================
+   カード
+======================= */
+.card {
+  border-radius: 25px;
+  width: 100%;
+  padding: 30px;
+  overflow: hidden; // 横にはみ出さないように
+  transition: max-width 0.5s ease, border-radius 0.5s ease, box-shadow 0.5s ease;
+  text-align: center;
+
+  &:nth-of-type(1) {
+    background-color: #91D2AF;
+  }
+
+  &:nth-of-type(2) {
+    background-color: #C0E5D1;
+  }
+
+  &:nth-of-type(3) {
+    background-color: #B3D3C4;
+  }
+
+  /* カードタイトル */
+  .card-title {
+    margin: 15px 0 5rem;
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+
+    @include mix.sp {
+      font-size: 1.5rem;
+    }
+
+    @include mix.fix-394 {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* カード内の画像 */
+  img {
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
     display: block;
+  }
+
+  /* ボタン */
+  .expand-btn,
+  .close-btn {
     margin-top: 8rem;
     background-color: #f0f8ff;
     color: #333;
@@ -90,46 +111,48 @@
     border-radius: 5px;
     cursor: pointer;
     transition: none;
+
+    @include mix.tab {
+      margin-top: 3rem;
+    }
+  }
+
+  .close-btn {
+    display: none;
+  }
+
+  /* ホバー時のバウンスアニメーション */
+  &:hover button {
+    animation: bounce 0.6s forwards;
+  }
+
+  /* 拡大状態 */
+  &.expand {
+    width: 100%;
+    height: 100vh;
+    max-width: 100vw;
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    position: sticky;
+
+    .expand-btn {
+      display: none;
+    }
+
+    .close-btn {
+      display: block;
+      margin-inline: auto;
+    }
+
+    img{
+      height: 70%;
+    }
   }
 }
 
-/* 他のカードは縮んで消える */
-.card-list.has-expand .card:not(.expand) {
-  display: none;
-  pointer-events: none;
-}
-
-/* カード内の画像 */
-.card img {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 20px;
-  display: block;
-}
-
-/* ボタン */
-.expand-btn {
-  margin-top: 8rem;
-  background-color: #f0f8ff;
-  color: #333;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: none;
-}
-
-.close-btn {
-  display: none;
-}
-
-/* ホバー時のアニメーション */
-.card:hover button {
-  animation: bounce 0.6s forwards;
-}
-
+/* =======================
+   バウンスアニメーション
+======================= */
 @keyframes bounce {
   0% {
     transform: scale(1);
@@ -152,11 +175,11 @@
   }
 }
 
-/* タイトル */
-.card-title {
-  margin-bottom: 5rem;
-  font-size: 2rem;
-  margin-top: 15px;
-  letter-spacing: 0.05em;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+/* =======================
+   フェードイン済みカード
+======================= */
+.visited {
+  opacity: 1;
+  transform: translateY(0);
+  transition: none;
 }
