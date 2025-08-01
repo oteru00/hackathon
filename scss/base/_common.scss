@@ -55,3 +55,8 @@ li {
         color: #22978C;
     }
 }
+
+#loading,
+#centerLogo {
+    pointer-events: none;
+}

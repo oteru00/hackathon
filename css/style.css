@@ -98,6 +98,11 @@ li {
   color: #22978C;
 }
 
+#loading,
+#centerLogo {
+  pointer-events: none;
+}
+
 #loading-item {
   display: none;
 }
@@ -373,6 +378,177 @@ body.no-scroll {
 .about-text li {
   list-style: inside;
   list-style-type: disc;
+}
+
+/* セクション全体 */
+.floor-section {
+  padding: 60px 20px;
+  background-color: #F5F5DC;
+  padding: 41rem 0 20.9rem;
+  text-align: center;
+  -webkit-mask: linear-gradient(0, rgba(0, 0, 0, 0) 160px, #000 0), radial-gradient(160px, #000 calc(100% - 1px), rgba(0, 0, 0, 0)) bottom/296px 320px;
+          mask: linear-gradient(0, rgba(0, 0, 0, 0) 160px, #000 0), radial-gradient(160px, #000 calc(100% - 1px), rgba(0, 0, 0, 0)) bottom/296px 320px;
+}
+
+/* タイトル */
+.floor-section h2 {
+  display: inline-block;
+  background: #fff;
+  padding: 15px 70px;
+  border-radius: 40px;
+  font-size: 3rem;
+  letter-spacing: 0.5em;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 40px;
+  -webkit-animation: pulsePop 2.5s ease-in-out infinite;
+          animation: pulsePop 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+.floor-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 15px solid transparent;
+  border-top-color: #fff;
+}
+
+/* カードリスト */
+.card-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* 高さは固定 */
+  transition: all 0.5s ease;
+}
+
+/* カードのスタイル */
+.card {
+  width: 33.3333333333%;
+  border-radius: 25px;
+  padding: 30px;
+  overflow: hidden;
+  transition: 0.5s ease, border-radius 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease;
+}
+
+.card:nth-of-type(1) {
+  background-color: #91D2AF;
+}
+
+.card:nth-of-type(2) {
+  background-color: #C0E5D1;
+}
+
+.card:nth-of-type(3) {
+  background-color: #DFF3E3;
+}
+
+/* 拡大したとき */
+.card.expand {
+  width: 100%;
+  height: 100vh;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.card.expand .expand-btn {
+  display: none;
+}
+.card.expand .close-btn {
+  display: block;
+  margin-top: 8rem auto 0;
+  background-color: #f0f8ff;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: none;
+}
+
+/* 他のカードは縮んで消える */
+.card-list.has-expand .card:not(.expand) {
+  display: none;
+  pointer-events: none;
+}
+
+/* カード内の画像 */
+.card img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+/* ボタン */
+.expand-btn {
+  margin-top: 8rem;
+  background-color: #f0f8ff;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: none;
+}
+
+.close-btn {
+  display: none;
+}
+
+/* ホバー時のアニメーション */
+.card:hover button {
+  -webkit-animation: bounce 0.6s forwards;
+          animation: bounce 0.6s forwards;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* タイトル */
+.card-title {
+  margin-bottom: 5rem;
+  font-size: 2rem;
+  margin-top: 15px;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .voices {
