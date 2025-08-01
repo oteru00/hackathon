@@ -890,34 +890,6 @@ body.no-scroll {
   transition: none;
 }
 
-.room {
-  padding-bottom: 410px;
-}
-@media (max-width: 768px) {
-  .room {
-    padding-bottom: 845px;
-  }
-}
-@media (max-width: 440px) {
-  .room {
-    padding-bottom: 380px;
-  }
-}
-@media (max-width: 394px) {
-  .room {
-    padding-bottom: 260px;
-  }
-}
-@media (max-width: 376px) {
-  .room {
-    padding-bottom: 200px;
-  }
-}
-@media (max-width: 361px) {
-  .room {
-    padding-bottom: 95px;
-  }
-}
 .room h2 {
   text-align: center;
   font-size: 3rem;
@@ -931,13 +903,33 @@ body.no-scroll {
 .room__card-list {
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 980px;
+}
+@media (max-width: 768px) {
+  .room__card-list {
+    height: 1600px;
+  }
+}
+@media (max-width: 440px) {
+  .room__card-list {
+    height: 1090px;
+  }
+}
+@media (max-width: 394px) {
+  .room__card-list {
+    height: 1140px;
+  }
+}
+@media (max-width: 376px) {
+  .room__card-list {
+    height: 1050px;
+  }
 }
 
 .room__card {
   position: absolute;
-  width: 24%;
-  height: 51%;
+  width: 350px;
+  height: 350px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -950,31 +942,16 @@ body.no-scroll {
   justify-content: center;
   border: 6px solid transparent;
 }
-@media (max-width: 768px) {
-  .room__card {
-    width: 45%;
-    height: 49%;
-  }
-}
 @media (max-width: 440px) {
   .room__card {
-    width: 50%;
-    height: 31%;
+    width: 220px;
+    height: 220px;
   }
 }
 @media (max-width: 394px) {
   .room__card {
-    height: 28%;
-  }
-}
-@media (max-width: 376px) {
-  .room__card {
-    height: 27%;
-  }
-}
-@media (max-width: 361px) {
-  .room__card {
-    height: 26%;
+    width: 200px;
+    height: 200px;
   }
 }
 .room__card .string-svg {
@@ -996,6 +973,17 @@ body.no-scroll {
 }
 .room__card h3 {
   z-index: 2;
+  margin-bottom: 15px;
+}
+@media (max-width: 440px) {
+  .room__card h3 {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 394px) {
+  .room__card h3 {
+    font-size: 1.1rem;
+  }
 }
 
 @-webkit-keyframes float {
@@ -1070,90 +1058,137 @@ body.no-scroll {
 }
 
 .room__card:nth-child(1) {
-  top: 8vh;
+  top: 50px;
   left: 5vw;
   border-color: #F7DAD9;
 }
 @media (max-width: 768px) {
   .room__card:nth-child(1) {
+    top: 80px;
     left: 3vw;
+  }
+}
+@media (max-width: 440px) {
+  .room__card:nth-child(1) {
+    top: 65px;
   }
 }
 
 .room__card:nth-child(2) {
-  top: 20vh;
+  top: 90px;
   left: 37vw;
   border-color: #F9E4B7;
 }
 @media (max-width: 768px) {
   .room__card:nth-child(2) {
-    top: 19vh;
+    top: 240px;
     left: 51vw;
   }
 }
 @media (max-width: 440px) {
   .room__card:nth-child(2) {
-    top: 23vh;
+    top: 225px;
     left: 47vw;
+  }
+}
+@media (max-width: 394px) {
+  .room__card:nth-child(2) {
+    top: 245px;
+    left: 42vw;
+  }
+}
+@media (max-width: 376px) {
+  .room__card:nth-child(2) {
+    top: 230px;
   }
 }
 
 .room__card:nth-child(3) {
-  top: 8vh;
+  top: 50px;
   right: 5vw;
   border-color: #E3F6F5;
 }
 @media (max-width: 768px) {
   .room__card:nth-child(3) {
-    top: 56vh;
+    top: 580px;
     right: 52vw;
   }
 }
 @media (max-width: 440px) {
   .room__card:nth-child(3) {
-    top: 42vh;
+    top: 400px;
     right: 46vw;
   }
 }
 @media (max-width: 394px) {
   .room__card:nth-child(3) {
-    top: 43vh;
+    top: 435px;
+    right: 41vw;
+  }
+}
+@media (max-width: 376px) {
+  .room__card:nth-child(3) {
+    top: 405px;
+    right: 43vw;
   }
 }
 
 .room__card:nth-child(4) {
-  top: 77vh;
+  top: 475px;
   left: 15vw;
   border-color: #E8F0D9;
 }
 @media (max-width: 768px) {
   .room__card:nth-child(4) {
-    top: 69vh;
-    left: 51vw;
+    top: 765px;
+    left: 50vw;
   }
 }
 @media (max-width: 440px) {
   .room__card:nth-child(4) {
-    top: 62vh;
+    top: 580px;
     left: 46vw;
+  }
+}
+@media (max-width: 394px) {
+  .room__card:nth-child(4) {
+    top: 630px;
+    left: 41vw;
+  }
+}
+@media (max-width: 376px) {
+  .room__card:nth-child(4) {
+    top: 580px;
   }
 }
 
 .room__card:nth-child(5) {
-  top: 77vh;
+  top: 475px;
   right: 15vw;
   border-color: #EDE6F2;
 }
 @media (max-width: 768px) {
   .room__card:nth-child(5) {
-    top: 102vh;
-    right: 40vw;
+    top: 1105px;
+    right: 41vw;
   }
 }
 @media (max-width: 440px) {
   .room__card:nth-child(5) {
-    top: 80vh;
+    top: 760px;
     right: 46vw;
+  }
+}
+@media (max-width: 394px) {
+  .room__card:nth-child(5) {
+    top: 830px;
+    right: 41vw;
+  }
+}
+@media (max-width: 376px) {
+  .room__card:nth-child(5) {
+    top: 760px;
+    right: 43vw;
   }
 }
 
