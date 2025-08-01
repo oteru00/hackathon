@@ -6,14 +6,14 @@
 #sign-up {
     padding-top: 40px;
 
-    .sec-title {
+    h2 {
         width: 60vw;
         margin: 0 auto 15px;
         text-align: center;
-        font-size: 9rem;
+        font-size: 7rem;
 
         @include mix.tab {
-            font-size: 5rem;
+            font-size: 3.5rem;
         }
 
         @include mix.sp {
@@ -28,22 +28,9 @@
     .cont-box {
         position: relative;
         background-color: #fff;
-        padding: 40px 200px;
+        padding: 4% 4% 4% 20%;
         border-radius: 20px;
         border-top: dotted 1px #333;
-
-        @include mix.tab {
-            padding: 40px 170px;
-        }
-
-
-        @include mix.sp {
-            padding: 25px 60px 25px 100px;
-        }
-
-        @include mix.fix-394 {
-            padding: 25px 65px 25px 90px;
-        }
 
         p {
             @include mix.sp {
@@ -73,29 +60,46 @@
             line-height: 30px;
             font-size: 3rem;
             position: absolute;
-            top: 40px;
-            right: 200px;
+            top: 10%;
+            right: 4%;
             color: #333;
             z-index: 100;
             transition: all 0.5s;
 
-            @include mix.tab {
-                right: 80px;
-            }
-
-            @include mix.sp {
-                top: 25px;
-                right: 20px;
-            }
         }
 
         .accordion-inner {
             display: none;
+            gap: 20px;
         }
 
         h3 {
             @include mix.fix-376 {
                 font-size: 1.5rem;
+            }
+        }
+
+        a {
+            display: block;
+            width: 50%;
+            background-color: #91C8C3;
+            padding: 20px 30px;
+            border-radius: 30px;
+            margin: 20px auto 0;
+            text-align: center;
+            font-weight: bold;
+
+            &:hover {
+                transform: scale(1.2);
+                transition: all 0.3s;
+            }
+
+            @include mix.tab {
+                width: 85%;
+            }
+
+            @include mix.sp {
+                width: 100%;
             }
         }
     }
@@ -110,7 +114,7 @@
     .number {
         position: absolute;
         top: 50%;
-        left: 50px;
+        left: 4%;
         transform: translateY(-50%);
         font-size: 10rem;
 
@@ -120,7 +124,6 @@
 
         @include mix.sp {
             font-size: 4.5rem;
-            left: 30px;
         }
 
         @include mix.fix-394 {

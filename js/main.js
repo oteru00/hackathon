@@ -73,9 +73,9 @@ window.addEventListener('load', () => {
       duration: 1.2,
       ease: "power2.inOut",
       onComplete: () => {
-        $('#loading').hide();
+        $('#loading').css('display', 'none');
         $('#loading-item').fadeIn(300);
-        window.addEventListener('wheel', handleWheel); // ← スクロール演出を復元
+        window.addEventListener('wheel', handleWheel);
       }
     });
   }, 4500);
@@ -150,7 +150,7 @@ $(function () {
       $centerLogo.css({
         'z-index': -10,
         'transition': 'z-index 0.5s ease',
-        'opacity': 0.5
+        'opacity': 0.5,
       });
     } else {
       // 元に戻す
@@ -168,26 +168,29 @@ $(function () {
   $(window).on('scroll', function () {
     const scrollTop = $(this).scrollTop();
     const windowHeight = $(this).height();
-    const screenCenterY = scrollTop + windowHeight / 2;
+    const windowWidth = $(this).width();
 
-    const h2Top = $secTit.offset().top;
-    const h2Left = $secTit.offset().left;
-    const h2Width = $secTit.outerWidth();
-    const h2Height = $secTit.outerHeight();
+    const screenCenterY = scrollTop + windowHeight / 2;
+    const screenCenterX = windowWidth / 2;
+
+    const rect = $secTit[0].getBoundingClientRect();
+    const h2Top = rect.top + scrollTop;
+    const h2Left = rect.left;
+    const h2CenterY = h2Top + rect.height / 2;
+
+    const h2Width = rect.width;
+    const h2Height = rect.height;
     const h2FontSize = $secTit.css('font-size');
     const h2LineHeight = $secTit.css('line-height');
     const h2FontWeight = $secTit.css('font-weight');
 
-    // ✅ sec-tit が画面中央より上 → 表示＆吸着
-    if (h2Top < screenCenterY) {
-      // opacity
+    if (h2CenterY <= screenCenterY) {
       $secTit.css('opacity', 1);
 
-      // ロゴ吸着
       $centerLogo.css({
         position: 'absolute',
-        top: h2Top + 'px',
-        left: h2Left + 'px',
+        top: (h2Top) + 'px',
+        left: (h2Left) + 'px',
         width: h2Width + 'px',
         height: h2Height + 'px',
         fontSize: h2FontSize,
@@ -198,10 +201,8 @@ $(function () {
         zIndex: 1
       });
     } else {
-      // opacity
       $secTit.css('opacity', 0);
 
-      // ロゴ戻す
       $centerLogo.css({
         position: 'fixed',
         top: '50%',
@@ -218,7 +219,7 @@ $(function () {
     }
   });
 
-  $(window).trigger('scroll'); // 初期化
+  $(window).trigger('scroll');
 });
 
 $(function () {
@@ -229,3 +230,31 @@ $(function () {
     $('.accordion').not($(this)).removeClass("open");
   });
 });
+
+// フロアセクション
+$(function() {
+  $('.expand-btn').click(function() {
+    // すべて閉じる
+    $('.card').removeClass('expand');
+    $('.card-list').removeClass('has-expand');
+
+    // クリックしたカードが展開されていない場合のみ展開
+    if (!$(this).closest('.card').hasClass('expand')) {
+      $(this).closest('.card').addClass('expand');
+      $(this).closest('.card-list').addClass('has-expand');
+    }
+  });
+});
+
+$(function() {
+  $('.close-btn').click(function() {
+    // すべて閉じる
+    $('.card').removeClass('expand');
+    $('.card-list').removeClass('has-expand');
+  });
+});
+
+
+
+
+

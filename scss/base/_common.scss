@@ -48,11 +48,18 @@ li {
 }
 
 .logo-style {
-    font-size: 15rem;
+    font-size: 14.5rem;
     font-weight: bold;
 
     span {
         color: #22978C;
+    }
+
+    @include mix.tab {
+        font-size: 9rem;
+    }
+    @include mix.sp{
+        font-size: 8rem;
     }
 }
 
