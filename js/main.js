@@ -85,11 +85,22 @@ window.addEventListener('load', () => {
 // ハンバーガーメニュー
 // ======================
 
-$(document).ready(function () {
-  $('.hamburger').on('click', function () {
-    $('nav').slideToggle(300);
-  });
+$('.hamburger').on('click', () => {
+  $('nav').slideToggle(300);
 });
+
+// ページ内リンク スムーススクロール
+$('a[href^="#"]').on('click', function(event){
+  event.preventDefault();
+  const target = $(this).attr('href');
+  const $target = $(target);
+  if ($target.length) {
+    $('html, body').animate({
+      scrollTop: $target.offset().top
+    }, 600);
+  }
+});
+
 
 // ======================
 // メインビジュアル：スクロールでclip-path変化
