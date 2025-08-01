@@ -3,29 +3,6 @@
 @use '../base/mixins' as mix;
 
 .room {
-
-    padding-bottom: 410px;
-
-    @include mix.tab {
-        padding-bottom: 845px;
-    }
-
-    @include mix.sp {
-        padding-bottom: 380px;
-    }
-
-    @include mix.fix-394 {
-        padding-bottom: 260px;
-    }
-
-    @include mix.fix-376 {
-        padding-bottom: 200px;
-    }
-
-    @include mix.fix-361 {
-        padding-bottom: 160px;
-    }
-
     h2 {
         text-align: center;
         font-size: 3rem;
@@ -39,7 +16,23 @@
 .room__card-list {
     position: relative;
     width: 100%;
-    height: 700px;
+    height: 980px;
+
+    @include mix.tab {
+        height: 1600px;
+    }
+
+    @include mix.sp {
+        height: 1090px;
+    }
+
+    @include mix.fix-394 {
+        height: 1140px;
+    }
+
+    @include mix.fix-376 {
+        height: 1050px;
+    }
 }
 
 .room__card {
@@ -65,11 +58,6 @@
     @include mix.fix-394 {
         width: 200px;
         height: 200px;
-    }
-
-    @include mix.fix-376 {
-        width: 180px;
-        height: 180px;
     }
 
     // SVG紐のスタイル
@@ -161,80 +149,119 @@
 
 // 各風船の配置位置
 .room__card:nth-child(1) {
-    top: 8vh;
+    top: 50px;
     left: 5vw;
     border-color: #F7DAD9;
 
     @include mix.tab {
+        top: 80px;
         left: 3vw;
+    }
+
+    @include mix.sp {
+        top: 65px;
     }
 }
 
 .room__card:nth-child(2) {
-    top: 20vh;
+    top: 90px;
     left: 37vw;
     border-color: #F9E4B7;
 
     @include mix.tab {
-        top: 19vh;
+        top: 240px;
         left: 51vw;
     }
 
     @include mix.sp {
-        top: 24vh;
+        top: 225px;
         left: 47vw;
+    }
+
+    @include mix.fix-394 {
+        top: 245px;
+        left: 42vw;
+    }
+
+    @include mix.fix-376 {
+        top: 230px;
     }
 }
 
 .room__card:nth-child(3) {
-    top: 8vh;
+    top: 50px;
     right: 5vw;
     border-color: #E3F6F5;
 
     @include mix.tab {
-        top: 56vh;
+        top: 580px;
         right: 52vw;
     }
 
     @include mix.sp {
-        top: 42vh;
+        top: 400px;
         right: 46vw;
     }
 
     @include mix.fix-394 {
-        top: 43vh;
+        top: 435px;
+        right: 41vw;
+    }
+
+    @include mix.fix-376 {
+        top: 405px;
+        right: 43vw;
     }
 }
 
 .room__card:nth-child(4) {
-    top: 77vh;
+    top: 475px;
     left: 15vw;
     border-color: #E8F0D9;
 
     @include mix.tab {
-        top: 69vh;
-        left: 51vw;
+        top: 765px;
+        left: 50vw;
     }
 
     @include mix.sp {
-        top: 60vh;
+        top: 580px;
         left: 46vw;
+    }
+
+    @include mix.fix-394 {
+        top: 630px;
+        left: 41vw;
+    }
+
+    @include mix.fix-376 {
+        top: 580px;
     }
 }
 
 .room__card:nth-child(5) {
-    top: 77vh;
+    top: 475px;
     right: 15vw;
     border-color: #EDE6F2;
 
     @include mix.tab {
-        top: 102vh;
-        right: 40vw;
+        top: 1105px;
+        right: 41vw;
     }
 
     @include mix.sp {
-        top: 78vh;
+        top: 760px;
         right: 46vw;
+    }
+
+    @include mix.fix-394 {
+        top: 830px;
+        right: 41vw;
+    }
+
+    @include mix.fix-376 {
+        top: 760px;
+        right: 43vw;
     }
 }
 
