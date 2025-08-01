@@ -23,7 +23,7 @@
     }
 
     @include mix.fix-361 {
-        padding-bottom: 95px;
+        padding-bottom: 160px;
     }
 
     h2 {
@@ -44,8 +44,8 @@
 
 .room__card {
     position: absolute;
-    width: 24%;
-    height: 51%;
+    width: 350px;
+    height: 350px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -57,26 +57,19 @@
     justify-content: center;
     border: 6px solid transparent;
 
-    @include mix.tab {
-        width: 45%;
-        height: 49%;
-    }
-
     @include mix.sp {
-        width: 50%;
-        height: 31%;
+        width: 220px;
+        height: 220px;
     }
 
     @include mix.fix-394 {
-        height: 28%;
+        width: 200px;
+        height: 200px;
     }
 
     @include mix.fix-376 {
-        height: 27%;
-    }
-
-    @include mix.fix-361 {
-        height: 26%;
+        width: 180px;
+        height: 180px;
     }
 
     // SVG紐のスタイル
@@ -98,6 +91,15 @@
 
     h3 {
         z-index: 2;
+        margin-bottom: 15px;
+
+        @include mix.sp {
+            font-size: 1.3rem;
+        }
+
+        @include mix.fix-394 {
+            font-size: 1.1rem;
+        }
     }
 }
 
@@ -179,7 +181,7 @@
     }
 
     @include mix.sp {
-        top: 23vh;
+        top: 24vh;
         left: 47vw;
     }
 }
@@ -215,7 +217,7 @@
     }
 
     @include mix.sp {
-        top: 62vh;
+        top: 60vh;
         left: 46vw;
     }
 }
@@ -231,7 +233,7 @@
     }
 
     @include mix.sp {
-        top: 80vh;
+        top: 78vh;
         right: 46vw;
     }
 }

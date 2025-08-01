@@ -915,7 +915,7 @@ body.no-scroll {
 }
 @media (max-width: 361px) {
   .room {
-    padding-bottom: 95px;
+    padding-bottom: 160px;
   }
 }
 .room h2 {
@@ -936,8 +936,8 @@ body.no-scroll {
 
 .room__card {
   position: absolute;
-  width: 24%;
-  height: 51%;
+  width: 350px;
+  height: 350px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -950,31 +950,22 @@ body.no-scroll {
   justify-content: center;
   border: 6px solid transparent;
 }
-@media (max-width: 768px) {
-  .room__card {
-    width: 45%;
-    height: 49%;
-  }
-}
 @media (max-width: 440px) {
   .room__card {
-    width: 50%;
-    height: 31%;
+    width: 220px;
+    height: 220px;
   }
 }
 @media (max-width: 394px) {
   .room__card {
-    height: 28%;
+    width: 200px;
+    height: 200px;
   }
 }
 @media (max-width: 376px) {
   .room__card {
-    height: 27%;
-  }
-}
-@media (max-width: 361px) {
-  .room__card {
-    height: 26%;
+    width: 180px;
+    height: 180px;
   }
 }
 .room__card .string-svg {
@@ -996,6 +987,17 @@ body.no-scroll {
 }
 .room__card h3 {
   z-index: 2;
+  margin-bottom: 15px;
+}
+@media (max-width: 440px) {
+  .room__card h3 {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 394px) {
+  .room__card h3 {
+    font-size: 1.1rem;
+  }
 }
 
 @-webkit-keyframes float {
@@ -1093,7 +1095,7 @@ body.no-scroll {
 }
 @media (max-width: 440px) {
   .room__card:nth-child(2) {
-    top: 23vh;
+    top: 24vh;
     left: 47vw;
   }
 }
@@ -1134,7 +1136,7 @@ body.no-scroll {
 }
 @media (max-width: 440px) {
   .room__card:nth-child(4) {
-    top: 62vh;
+    top: 60vh;
     left: 46vw;
   }
 }
@@ -1152,7 +1154,7 @@ body.no-scroll {
 }
 @media (max-width: 440px) {
   .room__card:nth-child(5) {
-    top: 80vh;
+    top: 78vh;
     right: 46vw;
   }
 }
